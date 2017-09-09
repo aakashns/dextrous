@@ -1,5 +1,5 @@
 import makeReducer from "./makeReducer";
-import { actionType } from "./util";
+import { actionType } from "./util/index";
 
 /** Action Types */
 export const EDIT = actionType("EDIT");

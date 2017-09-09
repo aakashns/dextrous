@@ -1,4 +1,4 @@
-import { actionType } from "./util";
+import { actionType } from "./util/index";
 
 /** Action Types */
 export const SET = actionType("SET");
