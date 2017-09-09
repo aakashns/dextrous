@@ -1,6 +1,14 @@
-export const SET = "@@redux-composable/SET";
-export const RESET = "@@redux-composable/RESET";
+import { actionType } from "./util";
 
+/** Action Types */
+export const SET = actionType("SET");
+export const RESET = actionType("RESET");
+
+/**
+ * Create a reducer that allows two actions:
+ * 1. Changing the state to new value using 'SET'
+ * 2. Setting the value back to the initialState using 'RESET'
+ */
 const makeReducer = initialState => (
   state = initialState,
   { type, payload }
@@ -17,11 +25,6 @@ const makeReducer = initialState => (
 
 export default makeReducer;
 
-export const setValue = value => ({
-  type: SET,
-  payload: value
-});
-
-export const resetValue = () => ({
-  type: RESET
-});
+/** Action Creators */
+export const setValue = value => ({ type: SET, payload: value });
+export const resetValue = () => ({ type: RESET });

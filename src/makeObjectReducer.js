@@ -1,8 +1,14 @@
 import makeReducer from "./makeReducer";
+import { actionType } from "./util";
 
-export const EDIT = "@@redux-composable/EDIT";
-export const REMOVE = "@@redux-composable/REMOVE";
+/** Action Types */
+export const EDIT = actionType("EDIT");
+export const REMOVE = actionType("REMOVE");
 
+/**
+ * Create a reducer that allows setting and removing entries
+ * in an object, apart from setting/resetting the entire state.
+ */
 const makeObjectReducer = (initialValue = {}) => {
   const defaultReducer = makeReducer(initialValue);
   return (state, action) => {
@@ -25,14 +31,12 @@ const makeObjectReducer = (initialValue = {}) => {
 
 export default makeObjectReducer;
 
+/** 
+ * Reducer obtained using `makeObjectReducer` using the empty
+ * object `{}` as the initial state.
+ */
 export const objectReducer = makeObjectReducer();
 
-export const editObject = edits => ({
-  type: EDIT,
-  payload: edits
-});
-
-export const removeKeys = keys => ({
-  type: REMOVE,
-  payload: keys
-});
+/** Action Creators */
+export const editObject = edits => ({ type: EDIT, payload: edits });
+export const removeKeys = keys => ({ type: REMOVE, payload: keys });

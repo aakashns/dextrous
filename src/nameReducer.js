@@ -7,13 +7,13 @@ const NAME_KEY = "__NAME__";
 const WHITELIST_KEY = "__WHITELIST__";
 
 /** Get the name of a named reducer */
-const getName = reducer => reducer[NAME_KEY];
+export const getReducerName = reducer => reducer[NAME_KEY];
 
-/** Set the name of reducer */
-const setName = (reducer, name) => (reducer[NAME_KEY] = name);
+/** Directly set the name of reducer (not to be used directly) */
+const setReducerName = (reducer, name) => (reducer[NAME_KEY] = name);
 
 /** Get the whitelisted actions for a named reducer */
-const getWhitelist = reducer => reducer[WHITELIST_KEY] || [];
+export const getWhitelist = reducer => reducer[WHITELIST_KEY] || [];
 
 /** Set the whitelisted actions for a named reducer */
 const setWhitelist = (reducer, whitelist) =>
@@ -29,14 +29,14 @@ const nameReducer = (reducer, name, whitelist = []) => {
   const namedReducer = (state, action) => {
     if (
       state !== undefined &&
-      getName(namedReducer) !== action.name &&
-      getWhitelist(namedReducer).indexOf(action.name) === -1
+      getReducerName(namedReducer) !== action.name &&
+      getWhitelist(namedReducer).indexOf(action.type) === -1
     ) {
       return state;
     }
     return reducer(state, action);
   };
-  setName(namedReducer, name);
+  setReducerName(namedReducer, name);
   setWhitelist(namedReducer, whitelist);
   return namedReducer;
 };

@@ -29,6 +29,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
     "jest": "^21.0.2",
+    "redux": "^3.7.2",
     "regenerator-runtime": "^0.11.0",
     "rollup": "^0.49.3",
     "rollup-plugin-babel": "^3.0.2",

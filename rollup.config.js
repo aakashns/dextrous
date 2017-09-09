@@ -19,6 +19,7 @@ export default [
   },
   {
     entry: "src/index.js",
+    external: ["redux"],
     targets: [
       { dest: pkg.main, format: "cjs" },
       { dest: pkg.module, format: "es" }
