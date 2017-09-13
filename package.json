@@ -1,10 +1,9 @@
 {
   "name": "composable-redux",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Utilities for reducer composition",
   "main": "src/index.js",
   "module": "dist/composable-redux.esm.js",
-  "browser": "dist/composable-redux.umd.js",
   "repository": "https://github.com/aakashns/composable-redux",
   "author": "Aakash N S <aakashns.sky@gmail.com>",
   "license": "MIT",
