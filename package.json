@@ -1,6 +1,6 @@
 {
   "name": "composable-redux",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Utilities for reducer composition",
   "main": "dist/composable-redux.cjs.js",
   "module": "dist/composable-redux.esm.js",
@@ -16,6 +16,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
+  "files": ["dist", "src"],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
