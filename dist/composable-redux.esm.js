@@ -1,4 +1,8 @@
-import { bindActionCreators, combineReducers, compose } from 'redux';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var redux = require('redux');
 
 var ACTION_PREFIX = "@@composable-redux/";
 
@@ -103,7 +107,7 @@ var nameReducers = function nameReducers(obj) {
  * Name a dictionary of reducers using the keys, and create a single
  * reducer using combineReducers.
  */
-var nameAndCombineReducers = compose(combineReducers, nameReducers);
+var nameAndCombineReducers = redux.compose(redux.combineReducers, nameReducers);
 
 /**
  * Given a reducer and an array of names, returns a dictionary of
@@ -117,7 +121,15 @@ var makeNamedReducers = function makeNamedReducers(reducer, names) {
   }, {});
 };
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
 
 /** 
  * Attach a name to an action, to target a named reducer 
@@ -150,10 +162,18 @@ var nameActionCreators = function nameActionCreators(obj, name) {
  * to the resulting actions. 
  */
 var nameAndBindActionCreators = function nameAndBindActionCreators(actionCreators, name, dispatch) {
-  return bindActionCreators(nameActionCreators(actionCreators, name), dispatch);
+  return redux.bindActionCreators(nameActionCreators(actionCreators, name), dispatch);
 };
 
-var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends$1 = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
 
 /** Action Types */
 var EDIT = actionType("EDIT");
@@ -199,7 +219,15 @@ var removeKeys = function removeKeys(keys) {
   return { type: REMOVE, payload: keys };
 };
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
 
 /** Action Types */
 var ADD = actionType("ADD");
@@ -236,4 +264,22 @@ var addItem = function addItem(item) {
   return addItems([item]);
 };
 
-export { makeReducer, setValue, resetValue, nameReducer, nameAction, nameActionCreator, nameActionCreators, makeNamedReducers, nameReducers, nameAndCombineReducers, nameAndBindActionCreators, makeObjectReducer, editObject, removeKeys, objectReducer, makeListReducer, listReducer, addItem, addItems };
+exports.makeReducer = makeReducer;
+exports.setValue = setValue;
+exports.resetValue = resetValue;
+exports.nameReducer = nameReducer;
+exports.nameAction = nameAction;
+exports.nameActionCreator = nameActionCreator;
+exports.nameActionCreators = nameActionCreators;
+exports.makeNamedReducers = makeNamedReducers;
+exports.nameReducers = nameReducers;
+exports.nameAndCombineReducers = nameAndCombineReducers;
+exports.nameAndBindActionCreators = nameAndBindActionCreators;
+exports.makeObjectReducer = makeObjectReducer;
+exports.editObject = editObject;
+exports.removeKeys = removeKeys;
+exports.objectReducer = objectReducer;
+exports.makeListReducer = makeListReducer;
+exports.listReducer = listReducer;
+exports.addItem = addItem;
+exports.addItems = addItems;
