@@ -1,8 +1,8 @@
 {
   "name": "composable-redux",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Utilities for reducer composition",
-  "main": "dist/composable-redux.cjs.js",
+  "main": "lib/index.js",
   "module": "dist/composable-redux.esm.js",
   "browser": "dist/composable-redux.umd.js",
   "repository": "https://github.com/aakashns/composable-redux",
@@ -13,7 +13,7 @@
     "init": "mkdir dist",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean && npm run init",
-    "build": "rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "dev": "rollup -c -w"
   },
   "files": ["dist", "src"],
