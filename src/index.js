@@ -4,8 +4,7 @@ import nameReducer, {
   nameAndCombineReducers,
   makeNamedReducers
 } from "./nameReducer";
-import {
-  nameAction,
+import nameAction, {
   nameActionCreator,
   nameActionCreators,
   nameAndBindActionCreators
