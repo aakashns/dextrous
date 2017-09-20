@@ -1,6 +1,12 @@
 # composable-redux
 A tiny library with utilities for reducer composition
 
+## Objectives
+
+- Reduce the amount of boilerplate involved defining reducers and action creators (using `makeReducer`, `makeObjectReducer`, `makeListReducer` etc.). 
+
+- Reuse reducers to handle multiple parts of the state without defining a whole new set of action types and action creators. (using `nameReducer`, `nameAction`, `nameActionCreators`, `nameAndCombineReducers` etc.)
+
 ## Installation
 Install using `npm` or `yarn`:
 ```bash
@@ -15,7 +21,7 @@ yarn add composable-redux
 
 ### `nameReducer(reducer, name, whitelist = [])`
 
-Wraps `reducer` and returns a new reducer function that only responds to actions that actions that contain a `name` property that matches the given `name`. Additionally, you can use the `whitelist` argument to provide a list of action types that should be handled even if they do not contain a name property.
+Wraps the given `reducer` and returns a new reducer function that only responds to actions that actions that contain a `name` property that matches the given `name`. 
 
 #### Example
 ```javascript
@@ -43,6 +49,8 @@ console.log(counter1(0, { type: 'INCREMENT', name: 'counter2' })); // 0
 console.log(counter1(0, { type: 'INCREMENT', name: 'counter1' })); // 1
 ```
 
+Additionally, you can use the `whitelist` argument in `nameReducer` to provide a list of action types that should be handled even if they do not contain a `name` property.
+
 ### `nameAction(action, name)`
 
 Utility function to add a `name` property to an action.
@@ -69,13 +77,13 @@ const actionCreator = (email, password) => ({
   payload: { email, password }
 });
 
-const namedCreator = nameActionCreator(actionCreator, 'myForm');
+const namedCreator = nameActionCreator(actionCreator, 'loginForm');
 
 console.log(namedCreator('test@example.com', 'password123'));
 /*
 {
   type: 'EDIT_LOGIN_DATA',
-  name: 'myForm',
+  name: 'loginForm',
   payload: {
     email: 'test@example.com',
     password: 'password123'
