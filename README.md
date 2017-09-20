@@ -278,7 +278,7 @@ console.log(newState2);
 // ["London", "San Francisco"]
 
 // Reset to the initial state
-const newSate3 = locations(newState2, resetLocations());
+const newState3 = locations(newState2, resetLocations());
 console.log(newState3);
 // ["London", "Paris"]
 ```
