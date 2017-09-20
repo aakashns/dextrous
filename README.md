@@ -1,5 +1,5 @@
 # composable-redux
-A tiny library with utilities for reducer composition
+A tiny library with utilities for reducer composition and reusing reducer logic.
 
 ## Objectives
 
