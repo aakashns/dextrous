@@ -1,5 +1,11 @@
 # composable-redux
-Utilities for reducer composition
+Utilities for reducer composition.
+
+### Objectives
+
+- Reduce the amount of boilerplate involved defining reducers and action creators (using `makeReducer`, `makeObjectReducer`, `makeListReducer` etc.). 
+
+- Reuse reducers to handle multiple parts of the state without defining a whole new set of action types and action creators. (using `nameReducer`, `nameAction`, `nameActionCreators`, `nameAndCombineReducers` etc.)
 
 ## Installation
 Install using `npm` or `yarn`:
