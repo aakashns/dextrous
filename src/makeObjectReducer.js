@@ -40,3 +40,4 @@ export const objectReducer = makeObjectReducer();
 /** Action Creators */
 export const editObject = edits => ({ type: EDIT, payload: edits });
 export const removeKeys = keys => ({ type: REMOVE, payload: keys });
+export const removeKey = key => removeKeys([key]);

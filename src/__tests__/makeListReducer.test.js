@@ -1,7 +1,9 @@
 import makeListReducer, {
   listReducer,
   addItem,
-  addItems
+  addItems,
+  removeItem,
+  removeItems
 } from "../makeListReducer";
 
 const initAction = { type: "@@INIT" };
@@ -23,6 +25,17 @@ describe("makeListReducer", () => {
     const item = { id: 9, name: "Gracias" };
     const expectedState = [...initialState, item];
     expect(reducer(initialState, addItem(item))).toEqual(expectedState);
+  });
+
+  it("removes a single item correctly", () => {
+    const action = removeItem(initialState[1]);
+    const expectedState = [initialState[0]];
+    expect(reducer(initialState, action)).toEqual(expectedState);
+  });
+
+  it("removes multiple items correctly", () => {
+    const action = removeItems([initialState[1], initialState[0]]);
+    expect(reducer(initialState, action)).toEqual([]);
   });
 });
 

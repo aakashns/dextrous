@@ -1,5 +1,6 @@
 import makeReducer from "./makeReducer";
 import { actionType } from "./util/index";
+import { removeKey, removeKeys, REMOVE } from "./makeObjectReducer";
 
 /** Action Types */
 export const ADD = actionType("ADD");
@@ -14,6 +15,8 @@ const makeListReducer = (initialState = []) => {
     switch (action.type) {
       case ADD:
         return [...state, ...action.payload];
+      case REMOVE:
+        return state.filter(item => action.payload.indexOf(item) === -1);
       default:
         return defaultReducer(state, action);
     }
@@ -31,3 +34,5 @@ export const listReducer = makeListReducer();
 /** Action Creators */
 export const addItems = items => ({ type: ADD, payload: items });
 export const addItem = item => addItems([item]);
+export const removeItems = removeKeys;
+export const removeItem = removeKey;

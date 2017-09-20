@@ -1,6 +1,7 @@
 import makeObjectReducer, {
   editObject,
-  removeKeys
+  removeKeys,
+  removeKey
 } from "../makeObjectReducer";
 
 const initAction = { type: "@@INIT" };
@@ -27,6 +28,12 @@ describe("makeObjectReducer", () => {
   it("removes keys correctly with REMOVE", () => {
     const removeAction = removeKeys(["a", "f"]);
     const expectedState = { c: 7 };
+    expect(reducer(state, removeAction)).toEqual(expectedState);
+  });
+
+  it("removes keys correctly with REMOVE", () => {
+    const removeAction = removeKey(["a"]);
+    const expectedState = { c: 7, f: 73 };
     expect(reducer(state, removeAction)).toEqual(expectedState);
   });
 });
