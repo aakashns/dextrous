@@ -1,9 +1,9 @@
 # composable-redux
-A tiny library with utilities for reducing boilerplate and reusing reducer logic.
+A tiny library with utilities for reducing Redux boilerplate and reusing reducer logic.
 
 ## Objectives
 
-- Reduce the amount of boilerplate involved defining reducers and action creators (using `makeReducer`, `makeObjectReducer`, `makeListReducer` etc.). 
+- Reduce the amount of boilerplate involved defining reducers and action creators in Redux(using `makeReducer`, `makeObjectReducer`, `makeListReducer` etc.). 
 
 - Reuse reducers to handle multiple parts of the state without defining a whole new set of action types and action creators. (using `nameReducer`, `nameAction`, `nameActionCreators`, `nameAndCombineReducers` etc.)
 
@@ -83,7 +83,7 @@ console.log(nameAction({ type: 'INCREMENT'}, 'counter2'));
 
 ### `nameActionCreator(actionCreator, name)` 
 
-Given an action creator and a name, returns a new action creators which adds the `name` property to the resulting action. 
+Given an `actionCreator` and a name, returns a new action creator which adds the `name` property to the resulting action. 
 
 #### Example
 ```javascript 
