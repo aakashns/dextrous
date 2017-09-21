@@ -1,6 +1,6 @@
 {
   "name": "composable-redux",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Utilities for reducer composition",
   "main": "lib/index.js",
   "module": "dist/composable-redux.esm.js",
@@ -12,11 +12,14 @@
     "init": "mkdir dist",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean && npm run init",
-    "build":
-      "NODE_ENV=production rollup -c && BABEL_ENV=commonjs babel src --out-dir lib",
+    "build": "NODE_ENV=production rollup -c && BABEL_ENV=commonjs babel src --out-dir lib",
     "dev": "rollup -c -w"
   },
-  "files": ["dist", "src", "lib"],
+  "files": [
+    "dist",
+    "src",
+    "lib"
+  ],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
