@@ -30,7 +30,9 @@ yarn add composable-redux
 * [`listReducer`](#listReducer)
 
 
-### `nameReducer(reducer, name, whitelist = [])` <a name="nameReducer"></a>
+<a name="nameReducer"></a>
+
+### `nameReducer(reducer, name, whitelist = [])`
 
 Wraps the given `reducer` and returns a new reducer function that only responds to actions that actions that contain a `name` property that matches the given `name`. 
 
@@ -62,7 +64,9 @@ console.log(counter1(0, { type: 'INCREMENT', name: 'counter1' })); // 1
 
 Additionally, you can use the `whitelist` argument in `nameReducer` to provide a list of action types that should be handled even if they do not contain a `name` property.
 
-### `nameAction(action, name)` <a name="nameAction"></a>
+<a name="nameAction"></a>
+
+### `nameAction(action, name)`
 
 Utility function to add a `name` property to an action.
 
@@ -75,7 +79,9 @@ console.log(nameAction({ type: 'INCREMENT'}, 'counter2'));
 
 ```
 
-### `nameActionCreator(actionCreator, name)` <a name="nameActionCreator"></a>
+<a name="nameActionCreator"></a>
+
+### `nameActionCreator(actionCreator, name)` 
 
 Given an action creator and a name, returns a new action creators which adds the `name` property to the resulting action. 
 
@@ -103,7 +109,9 @@ console.log(namedCreator('test@example.com', 'password123'));
 */
 ```
 
-### `makeReducer(initialState)` <a name="makeReducer"></a>
+<a name="makeReducer"></a>
+
+### `makeReducer(initialState)`
 
 Creates a reducer with the given initial state, supporting two actions:
 1. `SET`: Change the state to a new value provided with the action.
@@ -175,7 +183,9 @@ console.log(rootReducer(initialState, setLocation('Paris')));
 
 For example, if we do not use `nameReducer` in the above example while defining `age` and `location`, then dispatching the action `setAge` will change both `state.age` and `state.location` to the given value, which is not the desired behavior.
 
-### `makeObjectReducer(initialState = {})` <a name="makeObjectReducer"></a>
+<a name="makeObjectReducer"></a>
+
+### `makeObjectReducer(initialState = {})`
 Create a reducer that allows setting and removing entries in a plain Javascript object. It supports the following actions:
 1. `EDIT`: Change the values of one or more keys in the state object.
 2. `REMOVE`: Clear one or more keys in the state object.
@@ -230,7 +240,9 @@ console.log(newState3);
 
 **NOTE**: As with `makeReducer`, never use `makeObjectReducer` without `nameReducer`.
 
-### `objectReducer` <a name="objectReducer"></a>
+<a name="objectReducer"></a>
+
+### `objectReducer`
 If the `initialState` of your reducer is the empty object `{}`, you can use `objectReducer` instead of `makeObjectReducer({})`. It supports all the actions that `makeObjectReducer` supports.
 
 #### Example
@@ -244,7 +256,9 @@ const loginForm = nameReducer(makeObjectReducer({}), 'loginForm');
 
 ```
 
-### `makeListReducer(initialState = [])` <a name="makeListReducer"></a>
+<a name="makeListReducer"></a>
+
+### `makeListReducer(initialState = [])`
 Create a reducer that allows adding and removing items in a Javascript array. It supports the following actions:
 1. `ADD`: Add one or more item at the end of the list.
 2. `REMOVE`: Clear one or more items from the list.
@@ -296,7 +310,9 @@ console.log(newState3);
 
 **NOTE**: As with `makeReducer`, never use `makeListReducer` without `nameReducer`.
 
-### `listReducer` <a name="listReducer"></a>
+<a name="listReducer"></a>
+
+### `listReducer`
 If the `initialState` of your reducer is the empty list `[]`, you can use `listReducer` instead of `makeListReducer([])`. It supports all the actions that `makeListReducer` supports.
 
 #### Example
