@@ -12,14 +12,11 @@
     "init": "mkdir dist",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean && npm run init",
-    "build": "NODE_ENV=production rollup -c && BABEL_ENV=commonjs babel src --out-dir lib",
+    "build":
+      "NODE_ENV=production rollup -c && BABEL_ENV=commonjs babel src --out-dir lib",
     "dev": "rollup -c -w"
   },
-  "files": [
-    "dist",
-    "src",
-    "lib"
-  ],
+  "files": ["dist", "src", "lib"],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -51,7 +48,9 @@
     "react",
     "react-native",
     "react-redux",
-    "utility"
+    "utility",
+    "composition",
+    "state-management"
   ],
   "peerDependencies": {
     "redux": "^3.7.2"
