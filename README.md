@@ -36,8 +36,8 @@ yarn add composable-redux
 
 <a name="makeMultiReducer"></a>
 
-### makeMultiReducer(reducer, keyExtractor = action => action.key)
-Creates a key-based reducer that can be used to manage different parts of the state using the same `reducer`. The key must be provided by setting the `key` property on actions. Alternatively, you can provide a custom `keyExtractor` function to extract the key.
+### makeMultiReducer(reducer, [keyExtractor])
+Creates a key-based reducer that can be used to manage different parts of the state using the same `reducer`. The key must be provided by setting the `key` property on actions. Alternatively, you can provide a custom `keyExtractor` function to extract the key from an action.
 
 `makeMultiReducer` is ideal for cases where you want to use the same reducer to manage the state for multiple components, especially when the number of components is not known beforehand e.g. showing 5 independent counters on a page, with an 'Add Counter' button to add new counters.
 
@@ -79,6 +79,15 @@ console.log('State:', state); // {a: 11, c: 9}
 console.log('Counter a:', getCounter(state, 'a')); // 11
 console.log('Counter b:', getCounter(state, 'b')); // 10
 console.log('Counter c:', getCounter(state, 'c')); // 9
+
+// Using a custom key extractor
+const counters2 = makeMultiReducer(counter, action => action.id);
+let state2 = counters2(undefined, { type: '@@INIT'});
+const action = { type: 'INCREMENT', id: 'd' }; // Providing 'id' instead of 'key'
+
+console.log(getCounter(state2, 'd')); // 10
+state2 = counters2(state2, action);
+console.log(getCounter(state2, 'd')) // 11
 
 ```
 
