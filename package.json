@@ -1,6 +1,6 @@
 {
   "name": "composable-redux",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Utilities for reducer composition",
   "main": "lib/index.js",
   "module": "dist/composable-redux.esm.js",
