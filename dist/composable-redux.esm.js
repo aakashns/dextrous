@@ -245,4 +245,33 @@ var addItem = function addItem(item) {
 var removeItems = removeKeys;
 var removeItem = removeKey;
 
-export { makeReducer, setValue, resetValue, nameReducer, nameAction, nameActionCreator, nameActionCreators, makeNamedReducers, nameReducers, nameAndCombineReducers, nameAndBindActionCreators, makeObjectReducer, editObject, removeKeys, objectReducer, makeListReducer, listReducer, addItem, addItems, removeItem, removeItems };
+var _extends$2 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var INIT = actionType("INIT");
+var defaultKeyExtractor = function defaultKeyExtractor(action) {
+  return action.key;
+};
+
+var makeMultiReducer = function makeMultiReducer(reducer) {
+  var keyExtractor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultKeyExtractor;
+
+  var multiReducer = function multiReducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var action = arguments[1];
+
+    var key = keyExtractor(action);
+    if (!key) return state;
+    return _extends$2({}, state, _defineProperty({}, key, reducer(state[key], action)));
+  };
+  return multiReducer;
+};
+
+var makeMultiGetter = function makeMultiGetter(reducer) {
+  return function (state, name) {
+    return state[name] || reducer(undefined, { type: INIT });
+  };
+};
+
+export { makeMultiReducer, makeMultiGetter, makeReducer, setValue, resetValue, nameReducer, nameAction, nameActionCreator, nameActionCreators, makeNamedReducers, nameReducers, nameAndCombineReducers, nameAndBindActionCreators, makeObjectReducer, editObject, removeKeys, objectReducer, makeListReducer, listReducer, addItem, addItems, removeItem, removeItems };

@@ -1,4 +1,4 @@
-import { actionType } from "./util";
+import { actionType } from "./util/index";
 
 const INIT = actionType("INIT");
 const defaultKeyExtractor = action => action.key;
