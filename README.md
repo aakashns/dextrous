@@ -41,8 +41,7 @@ Creates a key-based reducer that can be used to manage different parts of the st
 
 `makeMultiReducer` is ideal for cases where you want to use the same reducer to manage the state for multiple components, especially when the number of components is not known beforehand e.g. showing 5 independent counters on a page, with an 'Add Counter' button to add new counters.
 
-#### Example
-<a href="https://stackblitz.com/edit/react-gtd76c" target="_blank">Try Online</a>
+#### Example ([Try Online](https://stackblitz.com/edit/react-gtd76c))
 
 ```javascript
 import { makeMultiReducer, makeMultiGetter } from 'composable-redux';
@@ -91,8 +90,7 @@ console.log('Counter c:', getCounter(state, 'c')); // 9
 
 Wraps the given `reducer` and returns a new reducer that only responds to actions that actions that contain a `name` matching the given `name`. 
 
-#### Example
-<a href="https://stackblitz.com/edit/react-gdmtuu" target="_blank">Try Online</a>
+#### Example ([Try online](https://stackblitz.com/edit/react-gdmtuu))
 
 ```javascript
 import { nameReducer } from 'composable-redux';
