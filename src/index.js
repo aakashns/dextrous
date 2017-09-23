@@ -21,8 +21,11 @@ import makeListReducer, {
   removeItem,
   removeItems
 } from "./makeListReducer";
+import makeMultiReducer, { makeMultiGetter } from "./makeMultiReducer";
 
 export {
+  makeMultiReducer,
+  makeMultiGetter,
   makeReducer,
   setValue,
   resetValue,

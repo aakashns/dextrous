@@ -1,3 +1,6 @@
+[![npm version](https://img.shields.io/npm/v/composable-redux.svg?style=flat-square)](https://www.npmjs.com/package/composable-redux)
+[![npm downloads](https://img.shields.io/npm/dm/composable-redux.svg?style=flat-square)](https://www.npmjs.com/package/composable-redux)
+
 # composable-redux
 A tiny library with utilities for reducing Redux boilerplate and reusing reducer logic.
 
@@ -20,6 +23,7 @@ yarn add composable-redux
 ## Usage
 
 ### Quick Links
+* [`makeMultiReducer`](#makeMultiReducer)
 * [`nameReducer`](#nameReducer)
 * [`nameAction`](#nameAction)
 * [`nameActionCreator`](#nameActionCreator)
@@ -29,6 +33,55 @@ yarn add composable-redux
 * [`makeListReducer`](#makeListReducer)
 * [`listReducer`](#listReducer)
 
+
+<a name="makeMultiReducer"></a>
+
+### makeMultiReducer(reducer, keyExtractor = action => action.key)
+Creates a key-based reducer that can be used to manage different parts of the state using the same `reducer`. The key must be provided by setting the `key` property on actions. Alternatively, you can provide a custom `keyExtractor` function to extract the key.
+
+`makeMultiReducer` is ideal for cases where you want to use the same reducer to manage the state for multiple components, especially when the number of components is not known beforehand e.g. showing 5 independent counters on a page, with an 'Add Counter' button to add new counters.
+
+#### Example
+```javascript
+import { makeMultiReducer, makeMultiGetter } from 'composable-redux';
+
+// Reducer to manage state for one counter
+const counter = (state = 10, { type }) => {
+  switch (type) {
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    default:
+      return state;
+  }
+};
+
+// Reducer to manage state for multiple counters.
+const counters = makeMultiReducer(counter);
+const getCounter = makeMultiGetter(counter);
+
+let state = counters(undefined, { type: "@@INIT" });
+console.log('State:', state); // {}
+console.log('Counter a:', getCounter(state, 'a')); // 10
+console.log('Counter b:', getCounter(state, 'b')); // 10
+console.log('Counter c:', getCounter(state, 'c')); // 10
+
+state = counters(state, { type: "INCREMENT", key: "a" });
+console.log('State:', state); // {a: 11}
+console.log('Counter a:', getCounter(state, 'a')); // 11
+console.log('Counter b:', getCounter(state, 'b')); // 10
+console.log('Counter c:', getCounter(state, 'c')); // 10
+
+state = counters(state, { type: "DECREMENT", key: "c" });
+console.log('State:', state); // {a: 11, c: 9}
+console.log('Counter a:', getCounter(state, 'a')); // 11
+console.log('Counter b:', getCounter(state, 'b')); // 10
+console.log('Counter c:', getCounter(state, 'c')); // 9
+
+```
+
+**NOTE**: Always use `makeMultiReducer` in conjunction with `makeMultiGetter` to retrieve the state correctly (as shown in the example above). If you try to acess the state for a particular key directly, you may get `undefined`.
 
 <a name="nameReducer"></a>
 
