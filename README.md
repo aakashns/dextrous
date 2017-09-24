@@ -1,5 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
 [![npm downloads](https://img.shields.io/npm/dm/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
+[![build status](https://api.travis-ci.org/aakashns/dextrous.svg?branch=master)](https://travis-ci.org/aakashns/dextrous)
 
 # dextrous
 A tiny library with utilities for reducing Redux boilerplate and reusing reducer logic.
