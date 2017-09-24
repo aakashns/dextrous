@@ -1,3 +1,5 @@
+**NOTE**: `composable-redux` has been renamed to [`dextrous`](https://npmjs.com/dextrous). Please install `dextrous` instead, for the latest updates. `composable-redux` has been deprecated.
+
 [![npm version](https://img.shields.io/npm/v/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
 [![npm downloads](https://img.shields.io/npm/dm/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
 
