@@ -22,6 +22,12 @@ import makeListReducer, {
   removeItems
 } from "./makeListReducer";
 import makeMultiReducer, { makeMultiGetter } from "./makeMultiReducer";
+import makeNamedReducer, {
+  nameReducerAndCreators,
+  makeNamedListReducer,
+  makeNamedObjectReducer,
+  makeNamedMultiReducer
+} from "./makeNamedReducer";
 
 export {
   makeMultiReducer,
@@ -46,5 +52,10 @@ export {
   addItem,
   addItems,
   removeItem,
-  removeItems
+  removeItems,
+  nameReducerAndCreators,
+  makeNamedReducer,
+  makeNamedObjectReducer,
+  makeNamedListReducer,
+  makeNamedMultiReducer
 };
