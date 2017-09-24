@@ -1,6 +1,6 @@
 import { bindActionCreators, combineReducers, compose } from 'redux';
 
-var ACTION_PREFIX = "@@composable-redux/";
+var ACTION_PREFIX = "@@dextrous/";
 
 /** Prefix an action type to avoid collisions */
 var actionType = function actionType(str) {

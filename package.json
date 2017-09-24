@@ -1,10 +1,10 @@
 {
-  "name": "composable-redux",
+  "name": "dextrous",
   "version": "0.1.15",
   "description": "Utilities for reducer composition",
   "main": "lib/index.js",
-  "module": "dist/composable-redux.esm.js",
-  "repository": "https://github.com/aakashns/composable-redux",
+  "module": "dist/dextrous.esm.js",
+  "repository": "https://github.com/aakashns/dextrous",
   "author": "Aakash N S <aakashns.sky@gmail.com>",
   "license": "MIT",
   "scripts": {

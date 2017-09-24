@@ -1,7 +1,7 @@
-[![npm version](https://img.shields.io/npm/v/composable-redux.svg?style=flat-square)](https://www.npmjs.com/package/composable-redux)
-[![npm downloads](https://img.shields.io/npm/dm/composable-redux.svg?style=flat-square)](https://www.npmjs.com/package/composable-redux)
+[![npm version](https://img.shields.io/npm/v/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
+[![npm downloads](https://img.shields.io/npm/dm/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
 
-# composable-redux
+# dextrous
 A tiny library with utilities for reducing Redux boilerplate and reusing reducer logic.
 
 ## Objectives
@@ -13,11 +13,11 @@ A tiny library with utilities for reducing Redux boilerplate and reusing reducer
 ## Installation
 Install using `npm` or `yarn`:
 ```bash
-npm install composable-redux --save
+npm install dextrous --save
 ```
 or 
 ```bash
-yarn add composable-redux
+yarn add dextrous
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ Creates a key-based reducer that can be used to manage different parts of the st
 #### Example ([Try Online](https://stackblitz.com/edit/react-gtd76c))
 
 ```javascript
-import { makeMultiReducer, makeMultiGetter } from 'composable-redux';
+import { makeMultiReducer, makeMultiGetter } from 'dextrous';
 
 // Reducer to manage state for one counter
 const counter = (state = 10, { type }) => {
@@ -102,7 +102,7 @@ Wraps the given `reducer` and returns a new reducer that only responds to action
 #### Example ([Try online](https://stackblitz.com/edit/react-gdmtuu))
 
 ```javascript
-import { nameReducer } from 'composable-redux';
+import { nameReducer } from 'dextrous';
 
 // A simple counter reducer supporting increment and decrement.
 const counter = (state = 0, { type }) => {
@@ -136,7 +136,7 @@ Utility function to add a `name` property to an action.
 
 #### Example
 ```javascript
-import { nameAction } from 'composable-redux';
+import { nameAction } from 'dextrous';
 
 console.log(nameAction({ type: 'INCREMENT'}, 'counter2'));
 // { type: 'INCREMENT', name: 'counter' }
@@ -151,7 +151,7 @@ Given an `actionCreator` and a name, returns a new action creator which adds the
 
 #### Example
 ```javascript 
-import { nameActionCreator } from 'composable-redux';
+import { nameActionCreator } from 'dextrous';
 
 const actionCreator = (email, password) => ({
   type: 'EDIT_LOGIN_DATA',
@@ -185,7 +185,7 @@ The action creators `setValue` and `resetValue` can be used to create `SET` and 
 
 #### Example
 ```javascript
-import { makeReducer, setValue, resetValue } from 'composable-redux';
+import { makeReducer, setValue, resetValue } from 'dextrous';
 
 const reducer = makeReducer('nothing');
 
@@ -204,7 +204,7 @@ import {
   resetValue,
   nameReducer,
   nameActionCreator
-} from 'composable-redux';
+} from 'dextrous';
 import { combineReducers } from 'redux';
 
 const ReducerNames = {
@@ -267,7 +267,7 @@ import {
   resetValue,
   nameReducer,
   nameActionCreator
-} from 'composable-redux';
+} from 'dextrous';
 
 const reducerName = 'signupForm';
 const initialState = { name: '', email: '', age: 18};
@@ -311,7 +311,7 @@ If the `initialState` of your reducer is the empty object `{}`, you can use `obj
 
 #### Example
 ```javascript
-import { objectReducer, nameReducer } from 'composable-redux';
+import { objectReducer, nameReducer } from 'dextrous';
 
 const loginForm = nameReducer(objectReducer, 'loginForm');
 /* Equivalent to:
@@ -340,7 +340,7 @@ import {
   resetValue,
   nameReducer,
   nameActionCreator
-} from 'composable-redux';
+} from 'dextrous';
 
 const reducerName = 'locations';
 const defaultLocations = ['London', 'Paris'];
@@ -381,7 +381,7 @@ If the `initialState` of your reducer is the empty list `[]`, you can use `listR
 
 #### Example
 ```javascript
-import { listReducer, nameReducer } from 'composable-redux';
+import { listReducer, nameReducer } from 'dextrous';
 
 const locations = nameReducer(listReducer, 'locations');
 /* Equivalent to:
