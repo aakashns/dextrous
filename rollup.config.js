@@ -7,7 +7,7 @@ import pkg from "./package.json";
 export default [
   {
     entry: "src/index.js",
-    dest: pkg.browser,
+    dest: "dist/dextrous.umd.min.js",
     format: "umd",
     moduleName: "ComposableRedux",
     plugins: [
