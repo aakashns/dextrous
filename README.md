@@ -400,61 +400,61 @@ There are many other utility functions that are currently not documented. You ca
 
 Here is a full list of exported functions:
 
-* `makeMultiReducer` ([source](), [tests]()]
+* `makeMultiReducer` ([source](), [tests]())
   
-* `makeMultiGetter` ([source](), [tests]()]
+* `makeMultiGetter` ([source](), [tests]())
 
-* `makeReducer` ([source](), [tests]()]
+* `makeReducer` ([source](), [tests]())
   
-* `setValue` ([source](), [tests]()]
+* `setValue` ([source](), [tests]())
   
-* `resetValue` ([source](), [tests]()]
+* `resetValue` ([source](), [tests]())
   
-* `nameReducer` ([source](), [tests]()]
+* `nameReducer` ([source](), [tests]())
   
-* `nameAction` ([source](), [tests]()]
+* `nameAction` ([source](), [tests]())
   
-* `nameActionCreator` ([source](), [tests]()]
+* `nameActionCreator` ([source](), [tests]())
   
-* `nameActionCreators` ([source](), [tests]()]
+* `nameActionCreators` ([source](), [tests]())
 
-* `makeNamedReducers` ([source](), [tests]()]
+* `makeNamedReducers` ([source](), [tests]())
   
-* `nameReducers` ([source](), [tests]()]
+* `nameReducers` ([source](), [tests]())
   
-* `nameAndCombineReducers` ([source](), [tests]()]
+* `nameAndCombineReducers` ([source](), [tests]())
   
-* `nameAndBindActionCreators` ([source](), [tests]()]
+* `nameAndBindActionCreators` ([source](), [tests]())
   
-* `makeObjectReducer` ([source](), [tests]()]
+* `makeObjectReducer` ([source](), [tests]())
   
-* `editObject` ([source](), [tests]()]
+* `editObject` ([source](), [tests]())
   
-* `removeKeys` ([source](), [tests]()]
+* `removeKeys` ([source](), [tests]())
   
-* `objectReducer` ([source](), [tests]()]
+* `objectReducer` ([source](), [tests]())
   
-* `makeListReducer` ([source](), [tests]()]
+* `makeListReducer` ([source](), [tests]())
   
-* `listReducer` ([source](), [tests]()]
+* `listReducer` ([source](), [tests]())
   
-* `addItem` ([source](), [tests]()]
+* `addItem` ([source](), [tests]())
   
-* `addItems` ([source](), [tests]()]
+* `addItems` ([source](), [tests]())
   
-* `removeItem` ([source](), [tests]()]
+* `removeItem` ([source](), [tests]())
   
-* `removeItems` ([source](), [tests]()]
+* `removeItems` ([source](), [tests]())
   
-* `nameReducerAndCreators` ([source](), [tests]()]
+* `nameReducerAndCreators` ([source](), [tests]())
   
-* `makeNamedReducer` ([source](), [tests]()]
+* `makeNamedReducer` ([source](), [tests]())
   
-* `makeNamedObjectReducer` ([source](), [tests]()]
+* `makeNamedObjectReducer` ([source](), [tests]())
   
-* `makeNamedListReducer` ([source](), [tests]()]
+* `makeNamedListReducer` ([source](), [tests]())
   
-* `makeNamedMultiReducer` ([source](), [tests]()]
+* `makeNamedMultiReducer` ([source](), [tests]())
 
 If you are using any of the above functions, please consider opening a pull request adding some documentation and examples.
 
