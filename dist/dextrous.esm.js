@@ -274,4 +274,50 @@ var makeMultiGetter = function makeMultiGetter(reducer) {
   };
 };
 
-export { makeMultiReducer, makeMultiGetter, makeReducer, setValue, resetValue, nameReducer, nameAction, nameActionCreator, nameActionCreators, makeNamedReducers, nameReducers, nameAndCombineReducers, nameAndBindActionCreators, makeObjectReducer, editObject, removeKeys, objectReducer, makeListReducer, listReducer, addItem, addItems, removeItem, removeItems };
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+/** Name a [reducer, { actionCreators }] pair */
+var nameReducerAndCreators = function nameReducerAndCreators(_ref, name) {
+  var _ref2 = _slicedToArray(_ref, 2),
+      reducer = _ref2[0],
+      actionCreators = _ref2[1];
+
+  return [nameReducer(reducer, name), nameActionCreators(actionCreators, name)];
+};
+
+var narc = nameReducerAndCreators;
+
+/** Create a named [reducer, { actionCreators }] pair for a normal reducer */
+var makeNamedReducer = function makeNamedReducer(name, initialState) {
+  return narc([makeReducer(initialState), { setValue: setValue, resetValue: resetValue }], name);
+};
+
+/** Create a named [reducer, { actionCreators }] pair for an object reducer */
+var makeNamedObjectReducer = function makeNamedObjectReducer(name, initialState) {
+  return narc([makeObjectReducer(initialState), { setValue: setValue, resetValue: resetValue, editObject: editObject, removeKey: removeKey, removeKeys: removeKeys }], name);
+};
+
+/** Create a named [reducer, { actionCreators }] pair for list reducer */
+var makeNamedListReducer = function makeNamedListReducer(name, initialState) {
+  return narc([makeListReducer(initialState), { setValue: setValue, resetValue: resetValue, addItem: addItem, addItems: addItems, removeItem: removeItem, removeItems: removeItems }], name);
+};
+
+/** Creates a named [multiReducer, { actions }] pair with an extra REMOVE action */
+var makeNamedMultiReducer = function makeNamedMultiReducer(_ref3, name, keyExtractor) {
+  var _ref4 = _slicedToArray(_ref3, 2),
+      reducer = _ref4[0],
+      actionCreators = _ref4[1];
+
+  var multiReducer = makeMultiReducer(reducer, keyExtractor);
+  var enhancedReducer = function enhancedReducer(state, action) {
+    switch (action.type) {
+      case REMOVE:
+        return objectReducer(state, action);
+      default:
+        return multiReducer(state, action);
+    }
+  };
+  return narc([enhancedReducer, actionCreators], name);
+};
+
+export { makeMultiReducer, makeMultiGetter, makeReducer, setValue, resetValue, nameReducer, nameAction, nameActionCreator, nameActionCreators, makeNamedReducers, nameReducers, nameAndCombineReducers, nameAndBindActionCreators, makeObjectReducer, editObject, removeKeys, objectReducer, makeListReducer, listReducer, addItem, addItems, removeItem, removeItems, nameReducerAndCreators, makeNamedReducer, makeNamedObjectReducer, makeNamedListReducer, makeNamedMultiReducer };
