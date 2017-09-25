@@ -1,6 +1,6 @@
-[![npm version](https://img.shields.io/npm/v/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
-[![npm downloads](https://img.shields.io/npm/dm/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)
-[![build status](https://api.travis-ci.org/aakashns/dextrous.svg?branch=master)](https://travis-ci.org/aakashns/dextrous)
+[![npm version](https://img.shields.io/npm/v/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous) [![build status](https://img.shields.io/travis/aakashns/dextrous.svg?style=flat-square)](https://travis-ci.org/aakashns/dextrous)
+
+<!--[![npm downloads](https://img.shields.io/npm/dm/dextrous.svg?style=flat-square)](https://www.npmjs.com/package/dextrous)-->
 
 # dextrous
 A tiny library with utilities for reducing Redux boilerplate and reusing reducer logic.
@@ -33,6 +33,7 @@ yarn add dextrous
 * [`objectReducer`](#objectReducer)
 * [`makeListReducer`](#makeListReducer)
 * [`listReducer`](#listReducer)
+* [Other Functions](#other-functions)
 
 
 <a name="makeMultiReducer"></a>
@@ -390,3 +391,75 @@ const locations = nameReducer(makeListReducer([]), 'locations');
 */
 
 ```
+
+<a name="other-functions"></a>
+
+### Other Functions
+
+There are many other utility functions that are currently not documented. You can go through their source code, comments and tests to see understand they do. 
+
+Here is a full list of exported functions:
+
+* `makeMultiReducer` ([source](), [tests]()]
+  
+* `makeMultiGetter` ([source](), [tests]()]
+
+* `makeReducer` ([source](), [tests]()]
+  
+* `setValue` ([source](), [tests]()]
+  
+* `resetValue` ([source](), [tests]()]
+  
+* `nameReducer` ([source](), [tests]()]
+  
+* `nameAction` ([source](), [tests]()]
+  
+* `nameActionCreator` ([source](), [tests]()]
+  
+* `nameActionCreators` ([source](), [tests]()]
+
+* `makeNamedReducers` ([source](), [tests]()]
+  
+* `nameReducers` ([source](), [tests]()]
+  
+* `nameAndCombineReducers` ([source](), [tests]()]
+  
+* `nameAndBindActionCreators` ([source](), [tests]()]
+  
+* `makeObjectReducer` ([source](), [tests]()]
+  
+* `editObject` ([source](), [tests]()]
+  
+* `removeKeys` ([source](), [tests]()]
+  
+* `objectReducer` ([source](), [tests]()]
+  
+* `makeListReducer` ([source](), [tests]()]
+  
+* `listReducer` ([source](), [tests]()]
+  
+* `addItem` ([source](), [tests]()]
+  
+* `addItems` ([source](), [tests]()]
+  
+* `removeItem` ([source](), [tests]()]
+  
+* `removeItems` ([source](), [tests]()]
+  
+* `nameReducerAndCreators` ([source](), [tests]()]
+  
+* `makeNamedReducer` ([source](), [tests]()]
+  
+* `makeNamedObjectReducer` ([source](), [tests]()]
+  
+* `makeNamedListReducer` ([source](), [tests]()]
+  
+* `makeNamedMultiReducer` ([source](), [tests]()]
+
+If you are using any of the above functions, please consider opening a pull request adding some documentation and examples.
+
+## Support
+
+I developed `dextrous` after facing the same problems (non-reusable reducer logic, too much boilerplate etc.) across several React + Redux projects. It's currently being used in over half a dozen projects running in production, so I fully intend to support, enhance, test and document the project for the forseeable future. This library has saved me from writing 1000s of lines of code, so I can't imagine not using for a future project. 
+
+`dextrous` is released under the MIT Licence, so feel free to do whatever you want with it! For feedback, comments and suggestions, [open a pull request](https://github.com/aakashns/dextrous/pulls) or just tweet to me ([@aakashns](https://twitter.com/aakashns)).
