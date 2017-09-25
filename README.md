@@ -5,11 +5,23 @@
 # dextrous
 A tiny library with utilities for reducing Redux boilerplate and reusing reducer logic.
 
+### Contents
+
+* [Objectives](#objectives)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Live Examples](#live-examples)
+* [Support](#support)
+
+<a name="objectives"></a>
+
 ## Objectives
 
 - Reduce the amount of boilerplate involved defining reducers and action creators in Redux(using `makeReducer`, `makeObjectReducer`, `makeListReducer` etc.). 
 
-- Reuse reducers to handle multiple parts of the state without defining a whole new set of action types and action creators. (using `nameReducer`, `nameAction`, `nameActionCreators`, `nameAndCombineReducers` etc.)
+- Reuse reducers to handle multiple parts of the state without defining a whole new set of action types and action creators. (using `makeMultiReducer`, `nameReducer`, `nameAction`, `nameActionCreators`, `nameAndCombineReducers` etc.)
+
+<a name="installation"></a>
 
 ## Installation
 Install using `npm` or `yarn`:
@@ -20,6 +32,8 @@ or
 ```bash
 yarn add dextrous
 ```
+
+<a name="usage"></a>
 
 ## Usage
 
@@ -457,6 +471,22 @@ Here is a full list of exported functions:
 * `makeNamedMultiReducer` ([source](), [tests]())
 
 If you are using any of the above functions, please consider opening a pull request adding some documentation and examples.
+
+<a name="live-examples"></a>
+
+## Live Examples
+
+Here are some live examples where edit you can edit the code online and play around with the APIs:
+
+* Using `makeMultiReducer` to render several independent counters: [https://stackblitz.com/edit/dextrous-example](https://stackblitz.com/edit/dextrous-example)
+
+* `makeMultiReducer` demo: [https://stackblitz.com/edit/react-gtd76c](https://stackblitz.com/edit/react-gtd76c)
+
+* `nameReducer` demo: [https://stackblitz.com/edit/react-gdmtuu](https://stackblitz.com/edit/react-gdmtuu)
+
+These examples powered by the [Stackblitz](https://stackblitz.com/) online IDE.
+
+<a name="support"></a>
 
 ## Support
 
