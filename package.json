@@ -12,15 +12,12 @@
     "init": "mkdir dist",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean && npm run init",
-    "build": "NODE_ENV=production rollup -c && BABEL_ENV=commonjs babel src --out-dir lib",
-    "prepare": "npm run test && npm run build",
+    "build":
+      "NODE_ENV=production rollup -c && BABEL_ENV=commonjs babel src --out-dir lib",
+    "prepublish": "npm run test && npm run build",
     "dev": "rollup -c -w"
   },
-  "files": [
-    "dist",
-    "src",
-    "lib"
-  ],
+  "files": ["dist", "src", "lib"],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
